@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Family Event Planner</title>
+</head>
+<body>
+		<h1>Family Event Planner</h1>
+		<ul id="events-list">
+				{% for event in events %}
+						<li>
+								{{ event.title }} - {{ event.date }}
+								<button class="edit-btn" data-id="{{ event.id }}">Edit</button>
+								<button class="delete-btn" data-id="{{ event.id }}">Delete</button>
+						</li>
+				{% endfor %}
+		</ul>
+
+		<h2>Add New Event</h2>
+		<input type="text" id="event-title" placeholder="Event Title">
+		<input type="date" id="event-date">
+		<button id="add-event-btn">Add Event</button>
+
+		<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
